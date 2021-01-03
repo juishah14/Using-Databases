@@ -20,5 +20,7 @@ for line in fh:
             cur.execute("INSERT INTO Counts (org, count) VALUES ( ?, 1 )", (domain, ))
         else:
             cur.execute("UPDATE Counts SET count = count + 1 WHERE org = ?", (domain, ))
+            
+# commit (copy) all data into database
 conn.commit()
 conn.close()
